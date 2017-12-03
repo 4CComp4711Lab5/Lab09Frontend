@@ -1,5 +1,4 @@
 <?php
-
 class Roles extends Application
 {
 

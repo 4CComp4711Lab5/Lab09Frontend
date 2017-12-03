@@ -2,9 +2,9 @@
 <form role="form" action="/mtce/submit" method="post">
     {ftask}
     {fpriority}
-	{size}
-	{group}
-	{status}
+	{fsize}
+	{fgroup}
+	{fstatus}<br/>
     {zsubmit}
 </form>
     {error}
