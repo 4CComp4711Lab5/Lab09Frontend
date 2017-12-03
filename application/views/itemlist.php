@@ -7,4 +7,3 @@
         </tr>
         {display_tasks}
 </table>
-

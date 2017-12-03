@@ -1,63 +1,73 @@
 <?php
 
-require_once(APPPATH . 'core/Entity.php');
-
 class Task extends Entity {
 
-	private $name;
-	private $priority;
-	private $size;
-	private $group;
+    private $Task;
+    private $Priority;
+    private $Size;
+    private $Group;
 
-	public function setName($value) {
-		// alpha_numeric_spaces|max_length[64]
-		if (preg_match('/^[a-zA-Z\s\d]{1,64}$/', $value)) {
-			$this->name = $value;
-		}
+    function setTask($value) {
+        if (strlen($value) > 64) {
+            return false;
+        }
 
-		return;
-	}
+        for ($i = 0; $i < strlen($value); $i++) {
+            if (!(is_numeric($value[$i]) ||
+                    ctype_alpha($value[$i]) || ctype_space($value[$i]))) {
+                return false;
+            }
+        }
 
-	public function getName() {
-		return $this->name;
-	}
+        $this->Task = $value;
+        return true;
+    }
 
-	public function setPriority($value) {
-		// integer|less_than[4]
-		if (preg_match('/^[1-3]{1}$/', $value)) {
-			$this->priority = $value;
-		}
+    function setPriority($value) {
+        switch ($value) {
+            case 1:
+                return $this->Priority = $value;
+                break;
+            case 2:
+                return $this->Priority = $value;
+                break;
+            case 3:
+                return $this->Priority = $value;
+                break;
+        }
+        return -1;
+    }
 
-		return;
-	}
+    function setSize($value) {
+        switch ($value) {
+            case 1:
+                return $this->Size = $value;
+                break;
+            case 2:
+                return $this->Size = $value;
+                break;
+            case 3:
+                return $this->Size = $value;
+                break;
+        }
+        return -1;
+    }
 
-	public function getPriority() {
-		return $this->priority;
-	}
-
-	public function setSize($value) {
-		// integer|less_than[4]
-		if (preg_match('/^[1-3]{1}$/', $value)) {
-			$this->size = $value;
-		}
-
-		return;
-	}
-
-	public function getSize() {
-		return $this->size;
-	}
-
-	public function setGroup($value) {
-		// integer|less_than[5]
-		if (preg_match('/^[1-4]{1}$/', $value)) {
-			$this->group = $value;
-		}
-
-		return;
-	}
-
-	public function getGroup() {
-		return $this->group;
-	}
+    function setGroup($value) {
+        switch ($value) {
+            case 1:
+                return $this->Group = $value;
+                break;
+            case 2:
+                return $this->Group = $value;
+                break;
+            case 3:
+                return $this->Group = $value;
+                break;
+            case 4:
+                return $this->Group = $value;
+                break;
+        }
+        return -1;
+    }
 }

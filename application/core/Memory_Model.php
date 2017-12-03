@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Entity.php';
-
 /**
  * Generic data access model, with data stored in memory only.
  * 
@@ -14,7 +12,7 @@ require_once 'Entity.php';
  * @copyright           Copyright (c) 2010-2017, James L. Parry
  * ------------------------------------------------------------------------
  */
-class Memory_Model extends Entity implements DataMapper
+class Memory_Model extends CI_Model implements DataMapper
 {
 
 	protected $_origin;  // Persistent name for this model, eg. filename
