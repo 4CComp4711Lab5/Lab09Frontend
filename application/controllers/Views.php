@@ -10,6 +10,7 @@ class Views extends Application {
         $this->data['rightside'] = $this->makeCategorizedPanel($tasks);
 
         $this->render('template_secondary');
+
     }
 
     function makePrioritizedPanel($tasks) {
@@ -17,6 +18,7 @@ class Views extends Application {
         foreach ($tasks as $task) {
             if ($task->status != 2)
                 $undone[] = $task;
+            
         }
 
         usort($undone, "orderByPriority");
