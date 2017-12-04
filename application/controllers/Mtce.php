@@ -160,6 +160,19 @@ class Mtce extends Application {
 			$this->showit();
 		}
 		
+		
+		// build a suitable error mesage
+		private function alert($message) {
+			$this->load->helper('html');        
+			$this->data['error'] = heading($message,3);
+		}
+
+		// Forget about this edit
+		function cancel() {
+			$this->session->unset_userdata('task');
+			redirect('/mtce');
+		}
+
 		// Delete this item altogether
 		function delete()
 		{
@@ -169,19 +182,6 @@ class Mtce extends Application {
 			$this->session->unset_userdata('task');
 			redirect('/mtce');
 		}
-		
-			// Forget about this edit
-		function cancel() {
-			$this->session->unset_userdata('task');
-			redirect('/mtce');
-		}
-		
-		// build a suitable error mesage
-		private function alert($message) {
-			$this->load->helper('html');        
-			$this->data['error'] = heading($message,3);
-		}
-		
 		
 		
 	
